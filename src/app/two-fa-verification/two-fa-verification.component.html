@@ -1,0 +1,29 @@
+<div class="loginBox">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="../../assets/images/logo.png" alt="Prolifics">
+            </div>
+            <div class="col-md-12">
+                <form [formGroup]="qrCodeForm" (ngSubmit)="onSubmit()">
+                <div class="formArea">
+                    <h3>Verify QR Code</h3>
+                    <p class="note">
+                        Note: Scan QR Code below to get 6 Digit OTP on your mobile.
+                    </p>
+                    <div class="form-group">
+                        <img [src]="qcUrl" class="qrcode" alt="">
+                    </div>
+                    <div class="email form-group">
+                            <span class="fas fa-qrcode"></span>
+                        <input type="text" formControlName="pin" class="form-control" placeholder="Enter 6 Digit Pin" />
+                    </div>
+                    <button type="submit" [disabled]="!qrCodeForm.valid" class="btn btn-success">Verify</button>
+                    <!-- <div class="forgot">
+                            <a href="javascript:void(0)">Forgot</a> Username / Password <br>
+                            <a href="javascript:void(0)" routerLink="/registration" >Create your Account <i class="fas fa-arrow-right"></i></a>
+                        </div> -->
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>

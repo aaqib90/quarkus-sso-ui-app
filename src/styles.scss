@@ -1,0 +1,268 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '_variables.scss';
+body {
+    font-family: 'Roboto', sans-serif;
+    background: $loginBg;
+}
+hr {
+    margin-bottom: 0.5rem;
+}
+.loginBox {
+    background: url('assets/images/bg-login.png') no-repeat 370px 75px #fff;
+    width: 800px;
+    height: 550px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom:0px;
+    right: 0px;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin: auto;
+
+    .formArea {
+        margin: 80px 0px 0px 30px;
+        width: 240px;
+        float: left;
+        
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e222b;
+            @include mar-pad-0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        input {
+            background: #e6e6e6;
+            color: #1e222b;
+            font-size: 14px;
+            font-weight: 300;
+            padding: 3px 4px 3px 4px;
+            height: 40px;
+            width: calc(100% - 40px);
+            border:none;
+            border-radius: 0px 20px 20px 0px;
+        }
+        .email {
+            span {
+                background: #e6e6e6;
+                width: 40px;
+                height: 40px;
+                text-align: right;
+                padding: 12px 6px 0 0;
+                border-radius: 20px 0 0 20px;
+                float: left;
+                transition: all 1s ease;
+
+                &.error, &.success {
+                    background: #ff8c25;
+                    color: #fff;
+                    padding: 12px 12px 0 0;
+                }
+                &.success {
+                    background: #57b845;
+                }
+            }
+            input:focus {
+                outline: none;
+                box-shadow: none;
+            }
+        } 
+        button[type=submit] {
+            width: 100%;
+            border-radius: 20px;
+            height: 40px;
+            background: #57b845;
+
+            &:hover {
+                background: #338d23;
+            }
+        }
+        .forgot {
+            font-size: 12px;
+            line-height: 24px;
+            margin: 10px 0 0 0;
+            width: 100%;
+            text-align: center;
+            color: #1e222b;
+    
+            a {
+                color: #767677;
+            }
+        }
+        
+    }
+    
+}
+::-webkit-input-placeholder { /* Edge */
+    color: rgb(116, 116, 116);
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(116, 116, 116);
+  }
+  
+  ::placeholder {
+    color: rgb(116, 116, 116);
+  }
+  .qrcode {
+      border: solid 1px rgb(168, 168, 168);
+      padding: 6px;
+      margin: 0px auto;
+      border-radius: 5px;
+      display: block;
+  }
+  .appContainer {
+      background: #f8fafb;
+      width: 100%;
+      height: 100vh;
+
+      .headerBar {
+          width: 100%;
+          height: 40px;
+          border-bottom: solid 1px #ececec;
+          background: #fff;
+          margin-bottom: 60px;
+      }
+
+      .leftPanel {
+          width: 50px;
+          height: 100vh;
+          float: left;
+          background: #17325d;
+          margin-top: -100px;
+          overflow: hidden;
+          transition: all .5s ease;
+
+          
+
+          .tglBtn {
+            /* padding: 10px 15px; */
+            color: #fff;
+            /* margin: 10px 0 0 0; */
+            width: 100%;
+            border-bottom: solid 1px #6581ad;
+            padding: 7px 0px 7px 18px;
+            float: left;
+            width: 200px;
+
+            i {
+                margin: 0px 38px 0px 0;
+            }
+            img {
+                opacity: 0;
+                
+                height: 30px; margin: -2px 0 0 0;position: absolute;
+            z-index: 99;
+            transition: all .4s ease;
+            }
+    }
+    &:hover {
+        width: 200px;
+        .tglBtn {
+            
+            img {
+                opacity: 10;
+            }
+        }
+      }
+          ul {
+            @include mar-pad-0;
+            margin-top: 50px;
+
+            li {
+                list-style: none;
+                a {
+                    color: #fff;
+                    padding: 5px 15px;
+                    width: 200px;
+                    font-size: 14px;
+                    text-align: left;
+                    float: left;
+
+                    i {
+                        margin: 0 20px 15px 0;
+                        font-size: 18px;
+                    }
+                }
+            }
+          }
+          
+      }
+  }
+  .rightPanel {
+    //   padding: 0px 30px;
+    //   float: right;
+    //   width: calc(100% - 50px)
+
+
+  }
+  .report {
+      background: #fff;
+      border-radius: 4px;
+      width: 100%;
+      min-height: 120px;
+      border: solid 1px #dcdcdc;
+      padding: 15px;
+
+      .regLink {
+        font-size: 14px;
+        color: #4d4d4d;
+        i {
+            margin: 0px 10px 0 0;
+            font-size: 20px;
+            color: #338d23;
+        }
+      }
+
+      .tile {
+        width: 80px;
+        height: 80px;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 34px;
+        text-align: center;
+        padding: 15px 0 0 0;
+        margin: -30px 0 0 5px;
+
+        &.green {
+            background: #49a84c;
+        }
+        &.pink {
+            background: #eb3d36;
+        }
+        &.orange {
+            background: #ff9201;
+        }
+        &.blue {
+            background: #00b8cd;
+        }
+      }
+      .info {
+          float: right;
+          color: #a3a3a3;
+          font-size: 16px;
+          font-weight: 600;
+          text-align: right;
+          margin: -60px 0 0 0;
+          line-height: 34px;
+
+          span {
+              font-size: 34px;
+              color: #000;
+
+          }
+      }
+  }
+  .contentBox {
+    background: #fff;
+    border-radius: 4px;
+    width: 100%;
+    min-height: 120px;
+    border: solid 1px #dcdcdc;
+    padding: 15px;
+    margin: 20px 0 0 0;
+  }
