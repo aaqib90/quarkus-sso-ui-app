@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
           console.log(resp);
           this.router.navigate(['/dashboard']);
         },
-        (err) => {
-          alert(err);
+        (err: Error) => {
+          alert(err.message);
           console.log(err);
           
         }

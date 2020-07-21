@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
-    postURLEndPoint:string = 'https://quarkus-sso-2fa.herokuapp.com/api/v1/register';
+    // postURLEndPoint:string = 'https://quarkus-sso-2fa.herokuapp.com/api/v1/register';
     constructor(private http: HttpClient) {}
 
     getAllUsers() {
