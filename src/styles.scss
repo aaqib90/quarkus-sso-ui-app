@@ -8,6 +8,9 @@ body {
 hr {
     margin-bottom: 0.5rem;
 }
+.btn-success:disabled {
+    cursor:not-allowed;
+}
 .loginBox {
     background: url('assets/images/bg-login.png') no-repeat 370px 75px #fff;
     width: 800px;
@@ -126,6 +129,26 @@ hr {
           border-bottom: solid 1px #ececec;
           background: #fff;
           margin-bottom: 60px;
+
+          .iconMenu {
+              @include mar-pad-0;
+              float: right;
+              margin-top: 8px;
+
+              li {
+                  list-style: none;
+                  display: inline-block;
+
+                  a {
+                      color: #4d4d4d;
+                      margin: 0px 10px;
+
+                      &:hover {
+                          color: #ff8c25;
+                      }
+                  }
+              }
+          }
       }
 
       .leftPanel {
@@ -266,3 +289,26 @@ hr {
     padding: 15px;
     margin: 20px 0 0 0;
   }
+
+.errorsArea {
+    float: left;
+    margin: 145px 0 0 40px;
+
+    .msgContainer {
+        border: solid 1px #ff8c25;
+    margin: 0 0 10px 0;
+    background: #fff;border-radius: 3px;
+
+        span {
+        background: #ff8c25;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        padding:2px 5px;border-radius: 3px;
+        display: block;
+        margin: 2px;
+        }
+
+    }
+
+}

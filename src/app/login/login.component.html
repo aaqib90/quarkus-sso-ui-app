@@ -8,23 +8,42 @@
             <div class="formArea">
                 <h3>Member Login</h3>
                 <div class="form-group email">
-                    <span class="far fa-envelope"></span>
+                    <span class="far fa-envelope" [ngClass]="{ 'error': f.email.touched && f.email.errors}"></span>
                     <input type="text" formControlName="email" class="form-control" placeholder="Email" />
                 </div>
                 <div class="email form-group">
-                        <span class="fas fa-lock"></span>
-                    <input type="password" formControlName="password" class="form-control" placeholder="Password" />
+                        <span class="fas fa-lock"
+                        [ngClass]="{ 'error': f.password.touched && f.password.errors}"></span>
+                    <input type="password" 
+                    formControlName="password" 
+                    class="form-control" placeholder="Password" />
                 </div>
                 <div class="email form-group">
-                        <span class="fas fa-qrcode"></span>
+                        <span class="fas fa-qrcode"
+                        [ngClass]="{ 'error': f.pin.touched && f.pin.errors}"></span>
                     <input type="text" formControlName="pin" class="form-control" placeholder="Enter 6 Digit Pin" />
-                </div>
+                    <div class="infotooltip"><i class="far fa-question-circle"></i>
+                        <div class="tooltiptext">Kindly open the Google Authenticatop which will genarate the OTP. And that OTP need to enter here.</div>
+                      </div>
+                    </div>
+                <!-- <button type="submit" class="btn btn-success" >Login</button> -->
                 <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Login</button>
                 <div class="forgot">
                         <a href="javascript:void(0)">Forgot</a> Username / Password <br>
                         <a href="javascript:void(0)" routerLink="/registration" >Create your Account <i class="fas fa-arrow-right"></i></a>
-                        <a href="javascript:void(0)" routerLink="/dashboard" >Dashboard <i class="fas fa-arrow-right"></i></a>
                     </div>
+            </div>
+            <div class="errorsArea">
+                <div *ngIf="f.email.touched && f.email.errors" class="msgContainer emailerrormsg">
+                    <span>Please enter a valid email.</span>
+                </div>
+                <div *ngIf="f.password.touched && f.password.errors" class="msgContainer pwd">
+                    <span>Please enter Password.</span>
+                </div>
+                <div *ngIf="f.pin.touched && f.pin.errors" class="msgContainer pin">
+                    <span>Please enter Valid Pin.</span>
+                </div>
+                        
             </div>
             </form>
         </div>

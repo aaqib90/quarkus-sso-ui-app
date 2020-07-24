@@ -1,1 +1,58 @@
 @import '../../_variables.scss';
+
+.errorsArea {
+    position: relative;
+}
+.pin, .pwd, .emailerrormsg {
+    position: absolute;
+    top: 112px;
+    width: max-content;
+    left: 0px
+}
+.emailerrormsg {
+    top: 4px;
+}
+.pwd {
+    top: 60px
+}
+.infotooltip {
+    position: relative;
+    display: inline-block;
+    // border-bottom: 1px dotted black;
+    float: right;
+    margin: -35px -31px 0 0;
+    font-size: 22px;
+    color: #162966;
+    outline: none;
+  }
+  
+  .infotooltip .tooltiptext {
+    visibility: hidden;
+    width: 360px !important;
+    background-color: #162966;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    left: 50%;
+    margin-left: -180px;
+    font-size: 14px;
+  }
+  
+  .infotooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #162966 transparent transparent transparent;
+  }
+  
+  .infotooltip:hover .tooltiptext {
+    visibility: visible;
+  }

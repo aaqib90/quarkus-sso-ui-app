@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 
 
 import { first } from 'rxjs/operators';
+import { LoaderService } from '../services/loader.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -16,6 +19,8 @@ export class RegistrationComponent implements OnInit {
   submitted = false;
   constructor(private formBuilder:FormBuilder,
               private userService:UserService,
+              private loaderService:LoaderService,
+              private toastr:ToastrService,
             private router:Router) { }
 
   ngOnInit() {
@@ -35,6 +40,7 @@ export class RegistrationComponent implements OnInit {
         console.log(this.registrationForm);
         
         this.submitted = true;
+        this.loaderService.show();
         // this.router.navigate(['/2fa-verification'], this.registrationForm.value.email);
         // if(this.registrationForm.invalid) {
         //   return;
@@ -45,10 +51,15 @@ export class RegistrationComponent implements OnInit {
         .subscribe(
           (result) => {
             console.log(result);
+            this.loaderService.hide();
+            this.toastr.success('User info saved Successfully..!', 'Success');
             this.router.navigate(['/2fa-verification'], this.registrationForm.value);
           },
-          (err) => {
+          (err: HttpErrorResponse) => {
             console.log(err);
+            this.loaderService.hide();
+            const errorMessage = err.error.message ? err.error.message : err.error;
+            this.toastr.error(errorMessage, 'Error');
           }
         )
         

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MustMatch } from '../helpers/confirmPassword.check';
+import { LoaderService } from '../services/loader.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-two-fa-verification',
@@ -18,7 +20,9 @@ export class TwoFaVerificationComponent implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private loaderService: LoaderService,
+    private toastr:ToastrService,
   ) { 
     const navigation:any = this.router.getCurrentNavigation();
     this.email = navigation.extras.email;
@@ -51,6 +55,7 @@ export class TwoFaVerificationComponent implements OnInit {
   }
 
   onSubmit() {
+    this.loaderService.show();
     const obj: any = {
       email : this.email,
       pin: this.qrCodeForm.controls.pin.value
@@ -59,12 +64,15 @@ export class TwoFaVerificationComponent implements OnInit {
     .pipe(first())
     .subscribe(
       (resp) => {
-        alert('Verified')
+        this.loaderService.hide();
+        this.toastr.success('User 2FA verification done Successfully..!', 'Success');
         this.router.navigate(['/login']);
       },
       (err) => {
-        alert(err);
+        this.loaderService.hide();
         console.log(err);
+        const errorMessage = err.error.message ? err.error.message : err.error;
+        this.toastr.error(errorMessage, 'Error');
       }
     )
     
