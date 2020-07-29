@@ -16,6 +16,7 @@ import { TwoFaVerificationComponent } from './two-fa-verification/two-fa-verific
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { LoaderService } from './services/loader.service';
+import { CheckSessionComponent } from './check-session/check-session.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LoaderService } from './services/loader.service';
     RegistrationComponent,
     TwoFaVerificationComponent,
     DashboardComponent,
-    LoaderComponent
+    LoaderComponent,
+    CheckSessionComponent
   ],
   imports: [
     BrowserModule,

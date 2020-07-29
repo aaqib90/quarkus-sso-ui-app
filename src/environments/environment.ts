@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  SERVER_URL: 'https://quarkus-sso-2fa.herokuapp.com/api/v1'
+  SERVER_URL: 'https://quarkus-sso-session.herokuapp.com/api/v1'
 };
 
 /*
